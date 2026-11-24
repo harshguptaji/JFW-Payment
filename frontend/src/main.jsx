@@ -1,17 +1,377 @@
-import React,{useState,useEffect,useRef} from 'react';
-import {createRoot} from 'react-dom/client';
-import {BrowserRouter,Routes,Route,Link} from 'react-router-dom';
-import axios from 'axios';
-import {io} from 'socket.io-client';
-import confetti from 'canvas-confetti';
-import './style.css';
-const base=import.meta.env.VITE_API_URL||'http://localhost:5000';
-const money=p=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format(p/100);
-function Logo(){return <img className="logo" src="/logo.svg" alt="Juniors Fashion Week"/>}
-function Display(){const [status,setStatus]=useState('Connecting');const [queue,setQueue]=useState([]);const [amount,setAmount]=useState(0);const current=queue[0];
-useEffect(()=>{const socket=io(base);socket.on('connect',()=>setStatus('Connected'));socket.on('disconnect',()=>setStatus('Disconnected'));socket.on('connect_error',e=>setStatus(e.message));socket.on('payment:created',p=>setQueue(q=>q.some(x=>x._id===p._id)?q:[...q,p]));return()=>socket.disconnect()},[]);
-useEffect(()=>{if(!current)return;let frame;const start=performance.now();const animate=now=>{const p=Math.min((now-start)/1200,1);setAmount(Math.round(current.amountPaise*(1-(1-p)**3)));if(p<1)frame=requestAnimationFrame(animate)};frame=requestAnimationFrame(animate);const colors=['#bd8a81','#e8b9b4','#d4ad6c'];confetti({particleCount:150,spread:100,origin:{y:.55},colors});const burst=setInterval(()=>confetti({particleCount:45,spread:100,origin:{x:Math.random(),y:.25},colors}),1400);const end=setTimeout(()=>setQueue(q=>q.slice(1)),10000);return()=>{cancelAnimationFrame(frame);clearInterval(burst);clearTimeout(end);confetti.reset()}},[current]);
-return <main className="display" onDoubleClick={()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}>{current?<section className="celebration" key={current._id}><Logo/><div className="eyebrow">✦ LET'S CELEBRATE ✦</div><h1>Hurray! Congratulations!</h1><div className="details"><img className="portrait" src={current.photo.url} alt="Payment profile"/><div><h2>{current.name}</h2><p className="reg">REG NO. {current.registrationNumber}</p><div className="amount">{money(amount)}</div><div className="received">✓ PAYMENT RECEIVED</div></div></div><div className="rule"/><p className="message">Another milestone. Another reason to celebrate!</p><div className="progress"/></section>:<Logo/>}{status!=='Connected'&&<small className="connection">{status} · reconnecting if available</small>}</main>}
-function Entry(){const [photo,setPhoto]=useState(null);const [preview,setPreview]=useState('');const [busy,setBusy]=useState(false);const [message,setMessage]=useState('');useEffect(()=>{if(!photo){setPreview('');return}const url=URL.createObjectURL(photo);setPreview(url);return()=>URL.revokeObjectURL(url)},[photo]);async function submit(e){e.preventDefault();const form=e.currentTarget;setBusy(true);setMessage('');try{await axios.post(base+'/api/payments',new FormData(form));form.reset();setPhoto(null);setMessage('Payment recorded and celebration sent!')}catch(err){setMessage(err.response?.data?.message||'Submission failed. Check payment history before retrying.')}finally{setBusy(false)}}return <main className="desk"><Logo/><nav><Link to="/admin">Payment history</Link><Link to="/" target="_blank">Open live display</Link></nav><form onSubmit={submit}><div className="eyebrow">JFW PAYMENT DESK</div><h1>Celebrate a new payment.</h1><label>Full name<input name="name" required maxLength={120}/></label><label>Registration number<input name="registrationNumber" required maxLength={80}/></label><label>Amount (₹)<input name="amount" type="number" min="0.01" step="0.01" required/></label><label>Profile picture<input name="photo" type="file" accept="image/jpeg,image/png,image/webp" required onChange={e=>setPhoto(e.target.files[0])}/></label>{preview&&<img className="preview" src={preview} alt="Photo preview"/>}<label className="consent"><input type="checkbox" required/> I confirm payment was received and the person (or guardian) has agreed to this display.</label><button disabled={busy}>{busy?'Submitting…':'Submit & celebrate ✦'}</button><p role="status">{message}</p></form></main>}
-function Admin(){const [rows,setRows]=useState([]);const [msg,setMsg]=useState('');async function load(e){e?.preventDefault();try{const {data}=await axios.get(base+'/api/payments');setRows(data);setMsg(`${data.length} recent payments`)}catch(e){setMsg(e.response?.data?.message||'Unable to load')}}useEffect(()=>{load()},[]);return <main className="desk history"><Logo/><Link to="/payment-entry">Payment entry</Link><form onSubmit={load}><h1>Payment history</h1><button>Load payments</button><p>{msg}</p></form><div className="tablewrap"><table><thead><tr><th>Name</th><th>Registration</th><th>Amount</th><th>Date</th></tr></thead><tbody>{rows.map(p=><tr key={p._id}><td>{p.name}</td><td>{p.registrationNumber}</td><td>{money(p.amountPaise)}</td><td>{new Date(p.createdAt).toLocaleString('en-IN')}</td></tr>)}</tbody></table></div></main>}
-createRoot(document.getElementById('root')).render(<BrowserRouter><Routes><Route path="/" element={<Display/>}/><Route path="/payment-entry" element={<Entry/>}/><Route path="/admin" element={<Admin/>}/></Routes></BrowserRouter>);
+import React, { useState, useEffect, useRef } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import axios from "axios";
+import { io } from "socket.io-client";
+import confetti from "canvas-confetti";
+import "./style.css";
+const base = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const money = (p) =>
+  new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 2,
+  }).format(p / 100);
+function Logo() {
+  return <img className="logo" src="/logo.svg" alt="Juniors Fashion Week" />;
+}
+function Display() {
+  const [status, setStatus] = useState("Connecting");
+  const [queue, setQueue] = useState([]);
+  const [amount, setAmount] = useState(0);
+
+  // Sound states and reference
+  const audioRef = useRef(null);
+  const [soundEnabled, setSoundEnabled] = useState(false);
+
+  const current = queue[0];
+
+  // Enable sound on first user interaction
+  const enableSound = async () => {
+    try {
+      const audio = audioRef.current;
+
+      if (!audio) return;
+
+      audio.volume = 0.8;
+
+      await audio.play();
+
+      audio.pause();
+      audio.currentTime = 0;
+
+      setSoundEnabled(true);
+    } catch (error) {
+      console.error("Unable to enable sound:", error);
+    }
+  };
+
+  // Socket.IO connection
+  useEffect(() => {
+    const socket = io(base);
+
+    socket.on("connect", () => setStatus("Connected"));
+
+    socket.on("disconnect", () => setStatus("Disconnected"));
+
+    socket.on("connect_error", (e) => setStatus(e.message));
+
+    socket.on("payment:created", (p) =>
+      setQueue((q) =>
+        q.some((x) => x._id === p._id) ? q : [...q, p]
+      )
+    );
+
+    return () => socket.disconnect();
+  }, []);
+
+  // Play celebration sound
+  useEffect(() => {
+    if (!current || !soundEnabled) return;
+
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    audio.currentTime = 0;
+    audio.volume = 0.8;
+
+    audio.play().catch((error) => {
+      console.error("Celebration sound failed:", error);
+      setSoundEnabled(false);
+    });
+
+    // Stop sound when celebration ends
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, [current, soundEnabled]);
+
+  // Amount animation and confetti
+  useEffect(() => {
+    if (!current) return;
+
+    let frame;
+
+    const start = performance.now();
+
+    const animate = (now) => {
+      const p = Math.min((now - start) / 1200, 1);
+
+      setAmount(
+        Math.round(current.amountPaise * (1 - (1 - p) ** 3))
+      );
+
+      if (p < 1) {
+        frame = requestAnimationFrame(animate);
+      }
+    };
+
+    frame = requestAnimationFrame(animate);
+
+    const colors = ["#bd8a81", "#e8b9b4", "#d4ad6c"];
+
+    confetti({
+      particleCount: 150,
+      spread: 100,
+      origin: { y: 0.55 },
+      colors,
+    });
+
+    const burst = setInterval(
+      () =>
+        confetti({
+          particleCount: 45,
+          spread: 100,
+          origin: {
+            x: Math.random(),
+            y: 0.25,
+          },
+          colors,
+        }),
+      1400
+    );
+
+    // Close celebration after 10 seconds
+    const end = setTimeout(() => {
+      setQueue((q) => q.slice(1));
+    }, 10000);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      clearInterval(burst);
+      clearTimeout(end);
+      confetti.reset();
+    };
+  }, [current]);
+
+  return (
+    <main
+      className="display"
+      onDoubleClick={() =>
+        document.fullscreenElement
+          ? document.exitFullscreen()
+          : document.documentElement
+              .requestFullscreen()
+              .catch(() => {})
+      }
+    >
+      {/* Celebration audio */}
+      <audio
+        ref={audioRef}
+        src="/celebration.mp3"
+        preload="auto"
+      />
+
+      {/* Enable sound button */}
+      {!soundEnabled && (
+        <button
+          type="button"
+          className="enable-sound-btn"
+          onClick={enableSound}
+        >
+          🔊 Enable Sound
+        </button>
+      )}
+
+      {/* Celebration screen */}
+      {current ? (
+        <section
+          className="celebration"
+          key={current._id}
+        >
+          <Logo />
+
+          <div className="eyebrow">
+            ✦ LET'S CELEBRATE ✦
+          </div>
+
+          <h1>Hurray! Congratulations!</h1>
+
+          <div className="details">
+            <img
+              className="portrait"
+              src={current.photo.url}
+              alt="Payment profile"
+            />
+
+            <div>
+              <h2>{current.name}</h2>
+
+              <p className="reg">
+                REG NO. {current.registrationNumber}
+              </p>
+
+              <div className="amount">
+                {money(amount)}
+              </div>
+
+              <div className="received">
+                ✓ PAYMENT RECEIVED
+              </div>
+            </div>
+          </div>
+
+          <div className="rule" />
+
+          <p className="message">
+            Another milestone. Another reason to celebrate!
+          </p>
+
+          <div className="progress" />
+        </section>
+      ) : (
+        <Logo />
+      )}
+
+      {/* Socket connection status */}
+      {status !== "Connected" && (
+        <small className="connection">
+          {status} · reconnecting if available
+        </small>
+      )}
+    </main>
+  );
+}
+function Entry() {
+  const [photo, setPhoto] = useState(null);
+  const [preview, setPreview] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    if (!photo) {
+      setPreview("");
+      return;
+    }
+    const url = URL.createObjectURL(photo);
+    setPreview(url);
+    return () => URL.revokeObjectURL(url);
+  }, [photo]);
+  async function submit(e) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setBusy(true);
+    setMessage("");
+    try {
+      await axios.post(base + "/api/payments", new FormData(form));
+      form.reset();
+      setPhoto(null);
+      setMessage("Payment recorded and celebration sent!");
+    } catch (err) {
+      setMessage(
+        err.response?.data?.message ||
+          "Submission failed. Check payment history before retrying.",
+      );
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <main className="desk">
+      <Logo />
+      <nav>
+        <Link to="/admin">Payment history</Link>
+        <Link to="/" target="_blank">
+          Open live display
+        </Link>
+      </nav>
+      <form onSubmit={submit}>
+        <div className="eyebrow">JFW PAYMENT DESK</div>
+        <h1>Celebrate a new payment.</h1>
+        <label>
+          Full name
+          <input name="name" required maxLength={120} />
+        </label>
+        <label>
+          Registration number
+          <input name="registrationNumber" required maxLength={80} />
+        </label>
+        <label>
+          Amount (₹)
+          <input name="amount" type="number" min="0.01" step="0.01" required />
+        </label>
+        <label>
+          Profile picture
+          <input
+            name="photo"
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            required
+            onChange={(e) => setPhoto(e.target.files[0])}
+          />
+        </label>
+        {preview && (
+          <img className="preview" src={preview} alt="Photo preview" />
+        )}
+        <label className="consent">
+          <input type="checkbox" required /> I confirm payment was received and
+          the person (or guardian) has agreed to this display.
+        </label>
+        <button disabled={busy}>
+          {busy ? "Submitting…" : "Submit & celebrate ✦"}
+        </button>
+        <p role="status">{message}</p>
+      </form>
+    </main>
+  );
+}
+function Admin() {
+  const [rows, setRows] = useState([]);
+  const [msg, setMsg] = useState("");
+  async function load(e) {
+    e?.preventDefault();
+    try {
+      const { data } = await axios.get(base + "/api/payments");
+      setRows(data);
+      setMsg(`${data.length} recent payments`);
+    } catch (e) {
+      setMsg(e.response?.data?.message || "Unable to load");
+    }
+  }
+  useEffect(() => {
+    load();
+  }, []);
+  return (
+    <main className="desk history">
+      <Logo />
+      <Link to="/payment-entry">Payment entry</Link>
+      <form onSubmit={load}>
+        <h1>Payment history</h1>
+        <button>Load payments</button>
+        <p>{msg}</p>
+      </form>
+      <div className="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Registration</th>
+              <th>Amount</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((p) => (
+              <tr key={p._id}>
+                <td>{p.name}</td>
+                <td>{p.registrationNumber}</td>
+                <td>{money(p.amountPaise)}</td>
+                <td>{new Date(p.createdAt).toLocaleString("en-IN")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  );
+}
+createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Display />} />
+      <Route path="/payment-entry" element={<Entry />} />
+      <Route path="/admin" element={<Admin />} />
+    </Routes>
+  </BrowserRouter>,
+);

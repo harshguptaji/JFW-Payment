@@ -114,4 +114,6 @@ app.use((err, req, res, next) => {
     });
 });
 await mongoose.connect(MONGO_URI);
-server.listen(PORT, () => console.log(`JFW server running on ${PORT}`));
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`JFW server running on ${PORT}`);
+});

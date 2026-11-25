@@ -720,7 +720,7 @@ createRoot(document.getElementById("root")).render(
       <Route path="/" element={<Display />} />
       <Route path="/payment-entry" element={<Entry />} />
       <Route path="/admin" element={<Admin />} />
-      <Route path="/events" element={<Events />} />
+      <Route path="/eventsss" element={<Events />} />
       <Route path="/emergency" element={<EmergencyEntry />} />
       <Route path="/emergency-history" element={<EmergencyHistory />} />
     </Routes>

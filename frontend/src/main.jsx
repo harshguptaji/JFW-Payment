@@ -59,7 +59,7 @@ function Home() {
   return (
     <section className="home">
       <Logo />
-      <h1>Live Event Registrations</h1>
+      <h1>Event Registrations</h1>
       {events.length > 0 && (
         <div className="live-table-wrapper">
           <table className="live-table horizontal-table">

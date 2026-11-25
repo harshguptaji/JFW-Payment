@@ -293,34 +293,63 @@ function Display() {
     return () => clearTimeout(timer);
   }, [alertId]);
   const current = alert ? null : queue[0];
-  const audioRef = useRef(null);
+  const celebrationRef = useRef(null);
+  const ambulanceRef = useRef(null);
   const [soundEnabled, setSoundEnabled] = useState(false);
+  const [soundError, setSoundError] = useState("");
+  const [enabling, setEnabling] = useState(false);
+
+  function stopAudio(audio) {
+    audio.pause();
+    try { audio.currentTime = 0; } catch (e) {}
+  }
+
   async function enableSound() {
+    if (enabling) return;
+    setEnabling(true);
+    setSoundError("");
+    const audios = [celebrationRef.current, ambulanceRef.current];
     try {
-      const audio = audioRef.current;
-      audio.src = alert ? "/ambulance.wav" : "/celebration.wav";
-      audio.volume = 0.55;
-      await Promise.resolve(audio.play());
-      audio.pause();
-      audio.currentTime = 0;
+      // Start both synchronously within the user's click gesture.
+      const starts = audios.map((audio) => {
+        audio.volume = 0.15;
+        return Promise.resolve(audio.play());
+      });
+      await Promise.all(starts);
+      audios.forEach(stopAudio);
       setSoundEnabled(true);
     } catch (e) {
+      audios.forEach(stopAudio);
       setSoundEnabled(false);
+      setSoundError(e.message || "Audio playback failed");
+      console.error("Audio unlock failed:", e);
+    } finally {
+      setEnabling(false);
     }
   }
+
   useEffect(() => {
-    if ((!current && !alert) || !soundEnabled) return;
-    const audio = audioRef.current;
-    audio.src = alert ? "/ambulance.wav" : "/celebration.wav";
-    audio.loop = !!alert;
+    if ((!current && !alertId) || !soundEnabled) return;
+    const audio = alertId ? ambulanceRef.current : celebrationRef.current;
+    let cancelled = false;
     audio.volume = 0.55;
-    Promise.resolve(audio.play()).catch(() => setSoundEnabled(false));
+    audio.loop = Boolean(alertId);
+    try {
+      Promise.resolve(audio.play()).catch((e) => {
+        if (cancelled) return;
+        setSoundError(e.message || "Audio playback failed");
+        setSoundEnabled(false);
+      });
+    } catch (e) {
+      setSoundError(e.message || "Audio playback failed");
+      setSoundEnabled(false);
+    }
     return () => {
-      audio.pause();
-      audio.currentTime = 0;
+      cancelled = true;
+      stopAudio(audio);
       audio.loop = false;
     };
-  }, [current, alert ? alert._id : null, soundEnabled]);
+  }, [current, alertId, soundEnabled]);
   useEffect(() => {
     const socket = io(base);
     socket.on("connect", () => setStatus("Connected"));
@@ -369,7 +398,8 @@ function Display() {
           ? document.exitFullscreen()
           : document.documentElement.requestFullscreen?.()?.catch(() => {})
       }>
-      <audio ref={audioRef} preload="auto" />
+      <audio ref={celebrationRef} src="/celebration.mp3" preload="auto" />
+      <audio ref={ambulanceRef} src="/ambulance.wav" preload="auto" />
       {alert ? (
         <EmergencyScreen
           alert={alert}
@@ -411,10 +441,11 @@ function Display() {
         <Home />
       )}
       {!soundEnabled && (
-        <button className="enable-sound" onClick={enableSound}>
-          Enable alert & celebration sound
+        <button type="button" className="enable-sound" onClick={enableSound} disabled={enabling} style={{ position: "fixed", bottom: 24, right: 24, zIndex: 2147483647, pointerEvents: "auto" }}>
+          {enabling ? "Enabling sound…" : "Enable alert & celebration sound"}
         </button>
       )}
+      {soundError && <small role="alert" style={{ position: "fixed", bottom: 85, right: 24, zIndex: 2147483647, background: "white", color: "#991b1b", padding: 10, maxWidth: "80vw" }}>{soundError}</small>}
       {alertError && <small className="alert-error">{alertError}</small>}
       {status !== "Connected" && (
         <small className="connection">

@@ -1256,7 +1256,7 @@ function Home({
           <Link to="/payment-entry">Payment Entry</Link>
           <Link to="/employees">Management</Link>
           <Link to="/pnl">P&L</Link>
-          <Link to="/emergency">Emergency</Link>
+          <Link to="/emergency">Warning</Link>
         </div>
 
         {soundError && (

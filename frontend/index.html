@@ -2,12 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/png" href="/App_Logo.png" />
+
+     <!-- <link rel="icon" type="image/png" href="/App_Logo.png" /> -->
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
     <title>JFW Celebrations</title>
+
+    <script>
+      window.onerror = function (message, source, line, column) {
+        var errorBox = document.createElement("pre");
+
+        errorBox.style.cssText =
+          "position:fixed;top:0;left:0;width:100%;padding:20px;" +
+          "background:#fff;color:red;font-size:20px;" +
+          "z-index:999999;white-space:pre-wrap;";
+
+        errorBox.textContent =
+          "JavaScript Error:\n" +
+          message +
+          "\nSource: " + source +
+          "\nLine: " + line +
+          "\nColumn: " + column;
+
+        document.body.appendChild(errorBox);
+      };
+
+      window.addEventListener("unhandledrejection", function (event) {
+        window.onerror(
+          String(event.reason),
+          "Promise",
+          0,
+          0
+        );
+      });
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

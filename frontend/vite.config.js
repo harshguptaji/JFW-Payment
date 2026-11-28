@@ -7,18 +7,19 @@ export default defineConfig({
     react(),
 
     legacy({
-      targets: [
-        "Chrome >= 49",
-        "Safari >= 10",
-        "Firefox >= 52",
-      ],
-
+      targets: ["defaults", "Chrome >= 38", "Safari >= 9"],
       modernPolyfills: true,
+      polyfills: true,
       renderLegacyChunks: true,
+      additionalLegacyPolyfills: [
+        "regenerator-runtime/runtime",
+      ],
     }),
   ],
 
   build: {
-    target: "es2015",
+    minify: "terser",
+    cssTarget: "chrome38",
+    sourcemap: false,
   },
 });

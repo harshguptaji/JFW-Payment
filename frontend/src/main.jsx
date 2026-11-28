@@ -1,4 +1,4 @@
-
+import "abortcontroller-polyfill/dist/abortcontroller-polyfill-only";
 import React, {
   useState,
   useEffect,

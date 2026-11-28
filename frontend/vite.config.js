@@ -7,12 +7,21 @@ export default defineConfig({
     react(),
 
     legacy({
-      targets: ["defaults", "Chrome >= 38", "Safari >= 9"],
+      targets: [
+        "Chrome >= 38",
+        "Safari >= 9",
+        "Firefox >= 45",
+        "Samsung >= 4",
+      ],
+
       modernPolyfills: true,
       polyfills: true,
       renderLegacyChunks: true,
+      renderModernChunks: true,
+
       additionalLegacyPolyfills: [
         "regenerator-runtime/runtime",
+        "abortcontroller-polyfill/dist/abortcontroller-polyfill-only",
       ],
     }),
   ],

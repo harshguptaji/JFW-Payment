@@ -1,9 +1,2900 @@
-:root{font-family:Arial,sans-serif;color:#292020;background:#fdf2f1;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{background:#292020;color:white;border:0;border-radius:7px;padding:15px;cursor:pointer}button:disabled{opacity:.5;cursor:wait}.display{min-height:100dvh;display:grid;place-items:center;text-align:center;overflow:hidden}.logo{width:min(36vw,440px);height:auto}.celebration{width:100%;padding:3vh 5vw;animation:enter .65s ease-out}.celebration .logo{width:clamp(75px,9vw,150px);margin-bottom:2vh}.eyebrow{font-size:clamp(10px,1vw,18px);letter-spacing:3px;color:#97665d;font-weight:bold}h1,h2{font-family:Georgia,serif;font-weight:normal}.celebration h1{font-size:clamp(30px,5vw,96px);margin:2vh 0 4vh;letter-spacing:-.035em}.details{display:flex;align-items:center;justify-content:center;gap:4vw;text-align:left}.portrait{width:clamp(100px,16vw,300px);height:clamp(130px,30vh,340px);object-fit:cover;border-radius:150px 150px 18px 18px;border:5px solid white;box-shadow:0 0 0 1px #d4a39a,0 10px 35px #b77b7222}.details h2{font-size:clamp(22px,3vw,60px);margin:0;overflow-wrap:anywhere}.reg{color:#896e69;font-size:clamp(11px,1.2vw,22px)}.amount{font-size:clamp(32px,6vw,115px);font-weight:800;color:#a26860;letter-spacing:-.04em}.received{color:#36744f;font-weight:bold;letter-spacing:2px;font-size:clamp(10px,1.1vw,20px);margin-top:10px}.rule{height:1px;background:#d7b2a9;width:65%;margin:4vh auto 2vh}.message{font:italic clamp(16px,2vw,36px) Georgia;color:#79524c}.progress{position:fixed;bottom:0;left:0;height:5px;background:#bd8a81;width:100%;animation:shrink 10s linear forwards}.connection{position:fixed;bottom:10px;color:#79524c}.desk{max-width:650px;margin:auto;padding:32px 20px}.desk .logo{width:140px;display:block;margin:0 auto 25px}.desk form{display:grid;gap:16px;background:white;border:1px solid #ecd9d5;border-radius:14px;padding:25px;margin-top:20px}.desk h1{margin:0;font-size:30px}.desk label{display:grid;gap:7px;font-size:13px;font-weight:bold}.desk input{width:100%;padding:12px;border:1px solid #dfc7c2;border-radius:5px;background:#fff;color:#292020}.desk .consent{display:flex;align-items:center;font-weight:normal}.consent input{width:auto}.preview{width:90px;height:90px;object-fit:cover;border-radius:8px}nav{display:flex;justify-content:space-between;gap:10px}a{color:#79524c}.history{max-width:1000px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;background:white;margin-top:20px}th,td{text-align:left;padding:12px;border-bottom:1px solid #ecd9d5;white-space:nowrap}@keyframes enter{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}@keyframes shrink{to{width:0}}@media(max-width:500px){.display>.logo{width:65vw}.details{gap:15px}.celebration{padding:20px 12px}.reg{overflow-wrap:anywhere}}@media(prefers-reduced-motion:reduce){.celebration{animation:none}}
 
-.enable-sound{position:fixed;right:16px;bottom:24px;z-index:5;font-size:12px;padding:10px 14px}
-/* Responsive overrides: traditional flexbox and viewport units for TV browsers. */
-html,body,#root{width:100%;min-height:100%;margin:0}body{background:#fdf2f1}.display{height:100vh;min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative}.home{width:88%;text-align:center;padding:2vh 0}.home .logo{width:18vw;max-height:12vh;object-fit:contain}.home h1{font-size:5vh;margin:1vh 0}.home .message{font-size:2.4vh;margin:1vh 0 2vh}.live-table{table-layout:fixed;width:100%;margin:0;border-collapse:collapse;border:1px solid #e8ccc7}.live-table th,.live-table td{text-align:center;white-space:normal;word-wrap:break-word;padding:1.5vh 1vw;font-size:3.1vh}.live-table th{background:#a26860;color:white;font-size:2.5vh;text-transform:uppercase}.live-table tbody tr:nth-child(even){background:#faeae7}.live-table .count{font-weight:bold;color:#a26860;font-size:4vh}.urgent{color:#b91c1c}.soon{color:#a15b09}.future{color:#36744f}.today{color:#2563eb}.past{color:#777}.live-label{color:#36744f;font-size:2vh;letter-spacing:1px}.celebration{padding:2vh 4vw}.celebration .logo{width:15vw;max-height:10vh;margin-bottom:1vh}.eyebrow{font-size:2vh}.celebration h1{font-size:7vh;margin:1vh 0 3vh}.details{gap:0}.portrait{width:30vh;height:38vh;margin-right:4vw;flex-shrink:0}.details>div{min-width:0;max-width:55vw}.details h2{font-size:5vh;word-wrap:break-word}.reg{font-size:2.5vh;margin:1vh 0}.amount{font-size:9vh;word-wrap:break-word}.received{font-size:2vh}.registration-result{font-size:2.6vh;color:#79524c;margin:1vh 0}.registration-result strong{color:#36744f}.rule{margin:2vh auto 1vh}.message{font-size:2.5vh}.connection{left:12px;bottom:12px;background:#fff;padding:6px;max-width:55%}.desk form{display:block}.desk form label{display:block;margin:16px 0}.desk input,.desk select{display:block;width:100%;margin-top:7px;padding:12px;font:inherit;font-size:16px;border:1px solid #dfc7c2;border-radius:5px;background:white;color:#292020}.desk .consent input{width:auto;margin:0 10px 0 0;flex-shrink:0}.desk form button{width:100%;margin-top:8px;background:#a26860}.desk nav{flex-wrap:wrap;justify-content:center}.desk nav a{margin:5px}.tablewrap{overflow-x:auto}.tablewrap th{background:#a26860;color:white}.tablewrap table{min-width:650px}.history{max-width:1200px}.history form{max-width:650px;margin:20px auto}.enable-sound{font-size:14px}
-@media(max-aspect-ratio:4/3){.home{width:96%}.home .logo{width:40vw}.home h1{font-size:6vw}.home .message{font-size:3.5vw}.live-table th,.live-table td{font-size:3.3vw;padding:1.6vh 1vw}.live-table .count{font-size:5vw}.live-label{font-size:3vw}.celebration .logo{width:30vw}.celebration h1{font-size:6vw}.details{flex-direction:column;text-align:center}.portrait{width:22vh;height:27vh;margin:0 auto 1vh}.details>div{max-width:94vw}.details h2{font-size:4vh}.amount{font-size:6vh}.reg,.registration-result{font-size:2.3vh}.message{font-size:2vh}.desk{padding:20px 12px}.desk form{padding:18px}.desk h1{font-size:25px}}
+/* ==========================================
+   JFW BUSINESS PERFORMANCE
+   GLOBAL THEME
+========================================== */
 
-.home{width:94%;max-width:none;text-align:center}.home .logo{width:25vw;max-height:20vh;object-fit:contain;margin:0 auto 3vh}.home h1{font-size:5vh;margin:0 0 5vh}.live-table-wrapper{width:100%;overflow-x:auto;border:1px solid #e8ccc7;border-radius:12px;background:white}.horizontal-table{width:100%;table-layout:fixed;border-collapse:collapse;margin:0}.horizontal-table thead th{background:#a26860;color:white;text-align:center;font-size:2.5vw;padding:3vh .5vw;white-space:normal;overflow-wrap:break-word;border-right:1px solid #bd8a81}.horizontal-table tbody td.count{background:white;color:#a26860;text-align:center;font-size:5vw;padding:5vh .5vw;border-right:1px solid #e8ccc7;font-weight:800}.emergency-screen{background:#850d16;color:white;width:100%;min-height:100vh;padding:3vh 5vw;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:8px solid #ef4444;box-sizing:border-box}.emergency-screen .logo{width:16vw;max-height:10vh;object-fit:contain;background:white;padding:8px;border-radius:8px}.emergency-screen h1{font-size:5vw;margin:2vh 0}.emergency-details{display:flex;align-items:center;justify-content:center;width:95%;margin:2vh 0}.emergency-details img{width:22vw;height:40vh;object-fit:contain;background:#550911;border:3px solid white;border-radius:12px;margin-right:4vw}.emergency-details div{flex:1;min-width:0;text-align:left;overflow-wrap:break-word}.emergency-details h2{font-size:3.5vw;margin:0 0 2vh}.emergency-details p{font-size:2.3vw;max-height:38vh;overflow:auto;white-space:pre-wrap}.emergency-screen strong{font-size:2.2vw;background:white;color:#850d16;padding:1vh 2vw;border-radius:8px}.emergency-title{color:#b91c1c}.desk form .emergency-button{background:#b91c1c;color:white}.desk textarea{width:100%;padding:12px;border:1px solid #e8ccc7;border-radius:8px;font:inherit;resize:vertical;box-sizing:border-box}.alert-error{position:absolute;top:5px;left:5px;background:white;color:#991b1b;padding:5px;z-index:5}.enable-sound{z-index:6}
-@media(max-width:600px){.home .logo{width:55vw}.home h1{font-size:6vw}.horizontal-table{table-layout:auto}.horizontal-table thead th{min-width:110px;font-size:16px;padding:18px 12px}.horizontal-table tbody td.count{font-size:32px;padding:25px 12px}.emergency-details{flex-direction:column}.emergency-details img{width:45vw;height:28vh;margin:0 0 2vh}.emergency-details div{text-align:center;width:100%}.emergency-screen h1{font-size:7vw}.emergency-details h2{font-size:6vw}.emergency-details p{font-size:4.5vw;max-height:25vh}.emergency-screen strong{font-size:4vw}.emergency-screen .logo{width:35vw}}
+:root {
+  --background: #fdf2f1;
+  --surface: #ffffff;
+  --primary: #a26860;
+  --primary-dark: #805049;
+  --primary-light: #f5e3e0;
+  --accent: #bd8a81;
+
+  --text: #292020;
+  --text-secondary: #796966;
+  --border: #eadbd8;
+
+  --success: #24834c;
+  --success-dark: #176437;
+  --success-light: #e8f7ed;
+  --success-border: #a4d6b2;
+
+  --danger: #c62828;
+  --danger-dark: #9c1b1b;
+  --danger-light: #fff0f0;
+
+  --warning: #b7791f;
+
+  --shadow: 0 5px 24px rgba(83, 47, 42, 0.06);
+  --radius: 12px;
+}
+
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+audio {
+  display: none;
+}
+
+canvas {
+  pointer-events: none !important;
+}
+
+::selection {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+/* ==========================================
+   COMMON FORM ELEMENTS
+========================================== */
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(162, 104, 96, 0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a69a97;
+}
+
+input:disabled,
+select:disabled {
+  background: #f5f3f2;
+  color: #8b807d;
+  cursor: not-allowed;
+}
+
+input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+input[type="file"] {
+  padding: 10px;
+  font-size: 13px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+label {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 17px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.primary-button {
+  background: var(--primary);
+  color: #ffffff;
+  border: 1px solid var(--primary);
+}
+
+.primary-button:hover:not(:disabled) {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.secondary-button {
+  background: #ffffff;
+  color: var(--primary-dark);
+  border: 1px solid var(--border);
+}
+
+.secondary-button:hover:not(:disabled) {
+  background: var(--primary-light);
+  border-color: var(--accent);
+}
+
+.danger-button {
+  background: var(--danger-light);
+  color: var(--danger);
+  border: 1px solid #f1caca;
+}
+
+.danger-button:hover:not(:disabled) {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #ffffff;
+}
+
+.card-actions,
+.target-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ==========================================
+   MESSAGES AND EMPTY STATES
+========================================== */
+
+.message {
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+.error-message {
+  color: var(--danger);
+  background: var(--danger-light);
+  border: 1px solid #f0c7c7;
+}
+
+.success-message {
+  color: var(--success-dark);
+  background: var(--success-light);
+  border: 1px solid var(--success-border);
+}
+
+.empty-state {
+  padding: 35px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.empty-state h1 {
+  margin-bottom: 15px;
+}
+
+.positive-text {
+  color: var(--success-dark) !important;
+  font-weight: 700;
+}
+
+.negative-text {
+  color: var(--danger) !important;
+  font-weight: 700;
+}
+
+.report-note {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.jfw-logo {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ==========================================
+   LIVE TV DASHBOARD
+========================================== */
+
+.tv-dashboard {
+  width: 100%;
+  height: 100vh;
+  padding: 1.5vh 1.8vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1vh;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    #fdf2f1 0%,
+    #fff9f8 50%,
+    #f8e9e6 100%
+  );
+}
+
+.tv-dashboard > * {
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   DASHBOARD HEADER
+========================================== */
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 7vh;
+  gap: 20px;
+}
+
+.dashboard-header .jfw-logo {
+  width: 10vw;
+  min-width: 90px;
+  max-width: 300px;
+  max-height: 7vh;
+}
+
+.dashboard-title {
+  flex: 1;
+  text-align: center;
+}
+
+.dashboard-title h1 {
+  font-size: 2.2vw;
+  font-weight: 700;
+  color: var(--primary-dark);
+  letter-spacing: -0.04em;
+}
+
+.dashboard-title p {
+  margin-top: 5px;
+  font-size: 0.8vw;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.dashboard-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  min-width: 10vw;
+}
+
+.dashboard-status > strong {
+  font-size: 1.4vw;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.live-status {
+  font-size: 0.65vw;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.live-status.connected {
+  color: var(--success);
+}
+
+.live-status.disconnected {
+  color: var(--danger);
+}
+
+/* ==========================================
+   SECTION HEADINGS
+========================================== */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.section-heading > span {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.tv-dashboard .section-heading {
+  margin-bottom: 0.7vh;
+}
+
+.tv-dashboard .section-heading h2 {
+  font-size: 1.05vw;
+}
+
+.tv-dashboard .section-heading > span {
+  font-size: 0.7vw;
+}
+
+/* ==========================================
+   EVENT REGISTRATION TABLE
+========================================== */
+
+.event-registration {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1vh 1vw;
+  box-shadow: var(--shadow);
+}
+
+.registration-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 5px 0;
+}
+
+.registration-table th {
+  padding: 0.7vh 5px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 0.95vw;
+  font-weight: 600;
+  border-radius: 7px 7px 0 0;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.registration-table td {
+  padding: 0.8vh 5px;
+  background: #faf3f1;
+  color: var(--primary-dark);
+  font-size: 2vw;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 0 0 7px 7px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================
+   DASHBOARD FILTERS
+========================================== */
+
+.dashboard-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 9px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 10px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filter-button {
+  padding: 9px 18px;
+  background: #f9f5f4;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 7px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter-button:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.filter-button.active {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.month-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.month-filters select {
+  width: auto;
+  min-width: 100px;
+  max-width: 260px;
+  padding: 9px 12px;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+.tv-dashboard .dashboard-filters {
+  padding: 0.6vh 0.5vw;
+  gap: 0.5vw;
+}
+
+.tv-dashboard .filter-button {
+  font-size: 0.85vw;
+  padding: 0.8vh 1.2vw;
+}
+
+.tv-dashboard .month-filters select {
+  font-size: 0.8vw;
+  padding: 0.7vh 0.8vw;
+  min-width: 5vw;
+  max-width: 17vw;
+}
+
+/* ==========================================
+   SUMMARY CARDS
+========================================== */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.summary-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.summary-card > span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.summary-card > strong {
+  display: block;
+  color: var(--text);
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  overflow-wrap: break-word;
+  font-variant-numeric: tabular-nums;
+}
+
+.summary-card.positive {
+  background: #f5fbf7;
+  border-color: var(--success-border);
+}
+
+.summary-card.positive > strong {
+  color: var(--success-dark);
+}
+
+.summary-card.negative {
+  background: var(--danger-light);
+  border-color: #efc5c5;
+}
+
+.summary-card.negative > strong {
+  color: var(--danger);
+}
+
+.tv-dashboard .summary-grid {
+  display: flex;
+  gap: 0.8vw;
+}
+
+.tv-dashboard .summary-card {
+  flex: 1;
+  padding: 1.2vh 1vw;
+}
+
+.tv-dashboard .summary-card > span {
+  font-size: 0.75vw;
+  margin-bottom: 0.7vh;
+}
+
+.tv-dashboard .summary-card > strong {
+  font-size: 1.8vw;
+}
+
+/* ==========================================
+   PERFORMANCE SECTION
+========================================== */
+
+.performance-section {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+
+.tv-dashboard .performance-section {
+  flex: 1;
+  flex-shrink: 1;
+  min-height: 0;
+  padding: 1vh 0.8vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+.tv-dashboard .performance-section .table-wrapper {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ==========================================
+   PERFORMANCE TABLE
+========================================== */
+
+.performance-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  table-layout: fixed;
+  font-variant-numeric: tabular-nums;
+}
+
+.performance-table th {
+  padding: 12px 10px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.performance-table th:first-child {
+  border-radius: 7px 0 0 7px;
+}
+
+.performance-table th:last-child {
+  border-radius: 0 7px 7px 0;
+}
+
+.performance-table td {
+  padding: 11px 10px;
+  background: #faf7f6;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+  overflow-wrap: break-word;
+}
+
+.performance-table td:first-child {
+  border-radius: 7px 0 0 7px;
+}
+
+.performance-table td:last-child {
+  border-radius: 0 7px 7px 0;
+}
+
+.performance-table tbody tr:hover td {
+  background: #f6edeb;
+}
+
+/* Daily report: 3 columns */
+
+.daily-performance-table th:nth-child(1) {
+  width: 44%;
+}
+
+.daily-performance-table th:nth-child(2) {
+  width: 30%;
+}
+
+.daily-performance-table th:nth-child(3) {
+  width: 26%;
+}
+
+/* Weekly / Monthly / Yearly: 6 columns */
+
+.target-performance-table th:nth-child(1) {
+  width: 25%;
+}
+
+.target-performance-table th:nth-child(2) {
+  width: 17%;
+}
+
+.target-performance-table th:nth-child(3) {
+  width: 12%;
+}
+
+.target-performance-table th:nth-child(4) {
+  width: 15%;
+}
+
+.target-performance-table th:nth-child(5) {
+  width: 15%;
+}
+
+.target-performance-table th:nth-child(6) {
+  width: 16%;
+}
+
+/* Profit and loss: 7 columns */
+
+.pnl-table th:first-child {
+  width: 23%;
+}
+
+.pnl-table th:not(:first-child) {
+  width: 12.83%;
+}
+
+.tv-dashboard .performance-table {
+  border-spacing: 0 0.4vh;
+}
+
+.tv-dashboard .performance-table th {
+  padding: 0.8vh 0.7vw;
+  font-size: 0.85vw;
+}
+
+.tv-dashboard .performance-table td {
+  padding: 0.55vh 0.7vw;
+  font-size: 1vw;
+}
+
+/* ==========================================
+   EMPLOYEE PHOTOS
+========================================== */
+
+.employee-photo {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid #ffffff;
+}
+
+.employee-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.employee-photo > span {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.employee-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.employee-identity {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 4px;
+}
+
+.employee-identity > strong {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+}
+
+.employee-identity > small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.tv-dashboard .employee-photo {
+  width: 3.8vh;
+  height: 3.8vh;
+  min-width: 3.8vh;
+}
+
+.tv-dashboard .employee-photo > span {
+  font-size: 1.1vw;
+}
+
+.tv-dashboard .employee-cell {
+  gap: 0.65vw;
+}
+
+.tv-dashboard .employee-identity > small {
+  font-size: 0.65vw;
+}
+
+/* ==========================================
+   TARGET VALUES
+========================================== */
+
+.target-values {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  line-height: 1.4;
+}
+
+.target-values > span {
+  font-weight: 700;
+}
+
+.target-values > small {
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.target-achievement {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.target-achievement > small {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.achievement-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.achievement-cell > strong {
+  color: var(--primary-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.progress-track {
+  width: 100%;
+  max-width: 220px;
+  height: 7px;
+  background: #e9dfdd;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 20px;
+  background: var(--primary);
+  transition: width 0.4s ease;
+}
+
+.tv-dashboard .achievement-cell {
+  gap: 0.4vh;
+}
+
+.tv-dashboard .achievement-cell > strong {
+  font-size: 0.95vw;
+}
+
+.tv-dashboard .progress-track {
+  height: 0.55vh;
+}
+
+.tv-dashboard .target-values {
+  gap: 0.3vh;
+}
+
+.tv-dashboard .target-values > small,
+.tv-dashboard .target-achievement > small {
+  font-size: 0.65vw;
+}
+
+.manual-label {
+  display: block;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 3px 7px;
+  background: #fff2dc;
+  border-radius: 4px;
+  color: #936419 !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+
+.tv-dashboard .manual-label {
+  font-size: 0.55vw !important;
+  padding: 2px 5px;
+}
+
+/* ==========================================
+   TARGET ACHIEVED - GREEN HIGHLIGHT
+========================================== */
+
+.performance-table tbody tr.target-achieved-row td,
+.data-table tbody tr.target-achieved-row td {
+  background: var(--success-light) !important;
+  color: var(--success-dark);
+  border-bottom-color: var(--success-border);
+}
+
+.performance-table tbody tr.target-achieved-row td:first-child,
+.data-table tbody tr.target-achieved-row td:first-child {
+  box-shadow: inset 4px 0 0 var(--success);
+}
+
+.performance-table tbody tr.target-achieved-row:hover td,
+.data-table tbody tr.target-achieved-row:hover td {
+  background: #d9f0e1 !important;
+}
+
+.target-achieved-row .employee-photo {
+  border-color: var(--success-border);
+}
+
+.target-achieved-row .employee-identity strong,
+.target-achieved-row .achievement-cell strong {
+  color: var(--success-dark);
+}
+
+.target-achieved-row .employee-identity small,
+.target-achieved-row .target-values small {
+  color: #568567;
+}
+
+.target-achieved-row .progress-track {
+  background: #c7e5d0;
+}
+
+.target-achieved-row .progress-fill {
+  background: var(--success);
+}
+
+.target-achieved-profile {
+  background: var(--success-light) !important;
+  border-color: var(--success-border) !important;
+}
+
+.target-achieved-profile h2,
+.target-achieved-profile h3 {
+  color: var(--success-dark);
+}
+
+.target-achieved-profile .employee-photo {
+  border-color: var(--success-border);
+}
+
+.target-completed-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  background: var(--success-light);
+  color: var(--success-dark);
+  border: 1px solid var(--success-border);
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Keep financial losses red even on green rows */
+
+.target-achieved-row .negative-text {
+  color: var(--danger) !important;
+}
+
+/* ==========================================
+   DASHBOARD FOOTER
+========================================== */
+
+.dashboard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 3.2vh;
+}
+
+.dashboard-links {
+  display: flex;
+  align-items: center;
+  gap: 1.2vw;
+}
+
+.dashboard-links a {
+  font-size: 0.75vw;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.dashboard-links a:hover {
+  text-decoration: underline;
+}
+
+.dashboard-links a:last-child {
+  color: var(--danger);
+}
+
+.sound-button {
+  padding: 0.65vh 0.9vw;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--primary-dark);
+  font-size: 0.7vw;
+  font-weight: 600;
+}
+
+.sound-button:hover {
+  background: var(--primary-light);
+}
+
+.sound-error {
+  flex: 1;
+  color: var(--danger);
+  font-size: 11px;
+  text-align: right;
+}
+
+/* ==========================================
+   MANAGEMENT PAGE
+========================================== */
+
+.management-page {
+  width: 100%;
+  max-width: 1700px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 28px 35px 50px;
+}
+
+.management-page > * + * {
+  margin-top: 20px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 10px 0 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header > div {
+  flex: 1;
+}
+
+.page-header .jfw-logo {
+  width: 130px;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  color: var(--primary-dark);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.page-header p {
+  margin-top: 7px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   MANAGEMENT NAVIGATION
+========================================== */
+
+.management-navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 9px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.management-navigation a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.management-navigation a:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.management-navigation a:last-child {
+  color: var(--danger);
+}
+
+/* ==========================================
+   MANAGEMENT SESSION
+========================================== */
+
+.management-session {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 35px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+}
+
+.management-session > span {
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.management-session .secondary-button {
+  padding: 6px 12px;
+  font-size: 11px;
+}
+
+/* ==========================================
+   MANAGEMENT LOGIN
+========================================== */
+
+.management-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: radial-gradient(
+    ellipse at center,
+    #ffffff,
+    #fdf2f1 70%
+  );
+}
+
+.management-login .form-card {
+  max-width: 420px;
+  padding: 35px;
+  text-align: center;
+}
+
+.management-login .jfw-logo {
+  width: 180px;
+  margin: 0 auto 12px;
+}
+
+.management-login h1 {
+  color: var(--primary-dark);
+  font-size: 25px;
+}
+
+.management-login p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.management-login a {
+  font-size: 13px;
+}
+
+/* ==========================================
+   FORM CARDS
+========================================== */
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.form-card.wide-form {
+  max-width: 1100px;
+}
+
+.form-card h2 {
+  font-size: 20px;
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.form-card .message {
+  margin-bottom: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-field > label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-field > a {
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.form-card > .primary-button {
+  min-height: 44px;
+}
+
+/* ==========================================
+   MANAGEMENT CARDS
+========================================== */
+
+.management-card {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+
+.management-card > h2 {
+  margin-bottom: 18px;
+  font-size: 19px;
+  color: var(--primary-dark);
+}
+
+.management-card > .page-toolbar {
+  margin-bottom: 18px;
+}
+
+/* ==========================================
+   PAGE TOOLBAR
+========================================== */
+
+.page-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.page-toolbar input,
+.page-toolbar select {
+  width: auto;
+  min-width: 160px;
+  max-width: 350px;
+  flex: 1;
+}
+
+.page-toolbar > .primary-button {
+  margin-left: auto;
+}
+
+/* ==========================================
+   EMPLOYEE LIST
+========================================== */
+
+.employee-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  );
+  gap: 18px;
+}
+
+.employee-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 25px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.employee-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(83, 47, 42, 0.1);
+}
+
+.employee-card .employee-photo {
+  width: 90px;
+  height: 90px;
+  min-width: 90px;
+  margin-bottom: 7px;
+  border: 3px solid var(--primary-light);
+}
+
+.employee-card .employee-photo > span {
+  font-size: 32px;
+}
+
+.employee-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.employee-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.employee-card .card-actions {
+  justify-content: center;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.employee-card .card-actions > * {
+  flex: 1;
+  padding: 9px 10px;
+}
+
+/* ==========================================
+   EMPLOYMENT STATUS
+========================================== */
+
+.status {
+  display: inline-flex;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.active-status {
+  color: var(--success-dark);
+  background: var(--success-light);
+}
+
+.inactive-status {
+  color: #746966;
+  background: #eee9e7;
+}
+
+/* ==========================================
+   PROFILE PHOTO UPLOAD
+========================================== */
+
+.profile-upload {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 18px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  background: #fcf8f7;
+}
+
+.profile-upload .employee-photo {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+}
+
+.profile-upload .employee-photo > span {
+  font-size: 35px;
+}
+
+.profile-upload input {
+  max-width: 400px;
+}
+
+/* ==========================================
+   EMPLOYEE PROFILE HEADER
+========================================== */
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.profile-header .employee-photo {
+  width: 110px;
+  height: 110px;
+  min-width: 110px;
+  border: 4px solid var(--primary-light);
+}
+
+.profile-header .employee-photo > span {
+  font-size: 36px;
+}
+
+.profile-header > div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-header h2 {
+  font-size: 25px;
+  margin-bottom: 8px;
+  overflow-wrap: break-word;
+}
+
+.profile-header p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-bottom: 6px;
+  overflow-wrap: break-word;
+}
+
+.profile-header strong {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 7px 11px;
+  background: #f5e9e6;
+  color: var(--primary-dark);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.target-achieved-profile strong {
+  color: var(--success-dark);
+}
+
+.target-achieved-profile .profile-header strong {
+  background: #d9f0e1;
+}
+
+/* ==========================================
+   SELECTED EMPLOYEE
+========================================== */
+
+.selected-employee {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #fcf7f6;
+}
+
+.selected-employee .employee-photo {
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
+}
+
+.selected-employee strong {
+  font-size: 15px;
+  color: var(--primary-dark);
+}
+
+/* ==========================================
+   DATA TABLES
+========================================== */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table thead th {
+  padding: 13px 12px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.data-table tbody td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #f0e8e6;
+  font-size: 13px;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.data-table tbody tr:nth-child(even) td {
+  background: #fcfaf9;
+}
+
+.data-table tbody tr:hover td {
+  background: #faf2f0;
+}
+
+.data-table tbody td > small {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.data-table tbody td > strong {
+  font-weight: 600;
+}
+
+.data-table tfoot th {
+  padding: 15px 12px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.data-table .primary-button,
+.data-table .secondary-button,
+.data-table .danger-button {
+  padding: 7px 11px;
+  font-size: 11px;
+}
+
+.data-table .achievement-cell {
+  min-width: 80px;
+}
+
+.data-table .target-actions {
+  min-width: 150px;
+}
+
+.management-page .target-performance-table {
+  min-width: 850px;
+}
+
+.management-page .pnl-table {
+  min-width: 900px;
+}
+
+/* ==========================================
+   WEEK MANAGEMENT
+========================================== */
+
+.selected-week-info {
+  padding: 14px 16px;
+  background: #faf1ee;
+  color: var(--primary-dark);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   MANUAL ACHIEVEMENT OVERRIDE
+========================================== */
+
+.manual-achievement-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fcf8f7;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.checkbox-field input {
+  margin: 2px 0 0;
+  flex-shrink: 0;
+}
+
+.checkbox-field strong {
+  display: block;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.checkbox-field p {
+  margin-top: 5px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.achievement-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.achievement-preview > span {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.achievement-preview .achievement-cell {
+  width: 45%;
+  max-width: 220px;
+}
+
+.achievement-preview .achievement-cell strong {
+  font-size: 23px;
+}
+
+.achievement-preview .progress-track {
+  height: 9px;
+}
+
+/* ==========================================
+   EXPENSE MANAGEMENT
+========================================== */
+
+.misc-expense-row {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(0, 0.8fr)
+    minmax(0, 1fr)
+    minmax(0, 1.2fr)
+    auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #fcf8f7;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.misc-expense-row input {
+  font-size: 12px;
+  padding: 10px;
+}
+
+.expense-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  background: var(--primary-light);
+  border-radius: 9px;
+}
+
+.expense-summary > span {
+  font-size: 13px;
+  color: var(--primary-dark);
+}
+
+.expense-summary > strong {
+  color: var(--primary-dark);
+  font-size: 15px;
+}
+
+/* ==========================================
+   PAYMENT CELEBRATION SCREEN
+========================================== */
+
+.celebration-screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  padding: 3vh 4vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5vh;
+
+  background: radial-gradient(
+    ellipse at center,
+    #ffffff 0%,
+    #fdf2f1 55%,
+    #efd2cd 100%
+  );
+
+  text-align: center;
+  animation: screen-enter 0.4s ease-out;
+}
+
+.celebration-screen .jfw-logo {
+  width: 15vw;
+  max-width: 250px;
+  max-height: 8vh;
+  margin-bottom: 1vh;
+}
+
+.celebration-eyebrow {
+  font-size: 1vw;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.25em;
+}
+
+.celebration-screen h1 {
+  font-size: 5vw;
+  line-height: 1.1;
+  color: var(--primary-dark);
+  letter-spacing: -0.04em;
+}
+
+.celebration-screen .celebration-photo {
+  width: 22vh;
+  height: 22vh;
+  min-width: 22vh;
+  border: 5px solid #ffffff;
+  box-shadow: 0 10px 35px rgba(128, 80, 73, 0.2);
+  margin: 1vh 0;
+}
+
+.celebration-photo > span {
+  font-size: 8vh;
+}
+
+.celebration-screen h2 {
+  font-size: 2.8vw;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.celebration-amount {
+  font-size: 5.8vw;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--success);
+  letter-spacing: -0.04em;
+}
+
+.celebration-screen > p {
+  font-size: 1.2vw;
+  color: var(--text-secondary);
+}
+
+.celebration-details {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1vw;
+  margin-top: 1vh;
+}
+
+.celebration-details > div {
+  min-width: 13vw;
+  padding: 1.5vh 1.8vw;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.celebration-details span {
+  display: block;
+  font-size: 0.9vw;
+  color: var(--text-secondary);
+  margin-bottom: 0.7vh;
+}
+
+.celebration-details strong {
+  display: block;
+  font-size: 1.6vw;
+  color: var(--primary-dark);
+}
+
+.celebration-timer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: rgba(162, 104, 96, 0.15);
+}
+
+.celebration-timer > div {
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  transform-origin: left;
+  animation: countdown 10s linear forwards;
+}
+
+/* ==========================================
+   TARGET ACHIEVED CELEBRATION
+========================================== */
+
+.target-achieved-celebration {
+  background: radial-gradient(
+    ellipse at center,
+    #ffffff 0%,
+    #e8f7ed 55%,
+    #b9dfc6 100%
+  );
+}
+
+.target-achieved-celebration h1,
+.target-achieved-celebration .celebration-eyebrow,
+.target-achieved-celebration .celebration-details strong {
+  color: var(--success-dark);
+}
+
+.target-achieved-celebration .celebration-photo {
+  border-color: var(--success-border);
+}
+
+.target-achieved-celebration .celebration-details > div {
+  border-color: var(--success-border);
+}
+
+.target-achieved-celebration .target-completed-badge {
+  font-size: 1vw;
+  padding: 0.8vh 1.5vw;
+  background: var(--success);
+  color: #ffffff;
+}
+
+.target-achieved-celebration .celebration-timer > div {
+  background: var(--success);
+}
+
+/* ==========================================
+   EMERGENCY SCREEN
+========================================== */
+
+.emergency-screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 4vh 5vw;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
+
+  color: #ffffff;
+  text-align: center;
+
+  background: radial-gradient(
+    ellipse at center,
+    #d93232 0%,
+    #a81010 65%,
+    #740707 100%
+  );
+
+  animation: screen-enter 0.25s ease-out;
+}
+
+.emergency-warning {
+  padding: 1.2vh 2vw;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  font-size: 2.5vw;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.emergency-screen .emergency-photo {
+  width: 28vh;
+  height: 28vh;
+  min-width: 28vh;
+  margin: 1vh 0;
+  border: 5px solid #ffffff;
+  background: #ffffff;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.emergency-photo > span {
+  font-size: 10vh;
+  color: var(--danger);
+}
+
+.emergency-screen h1 {
+  font-size: 4vw;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.emergency-screen > p {
+  max-width: 85vw;
+  max-height: 23vh;
+  overflow: auto;
+  font-size: 2.2vw;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.emergency-screen > strong {
+  font-size: 1.5vw;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.emergency-timer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.emergency-timer > div {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  transform-origin: left;
+  animation: countdown 5s linear forwards;
+}
+
+/* ==========================================
+   EMERGENCY ENTRY AND HISTORY
+========================================== */
+
+.emergency-page .page-header h1 {
+  color: var(--danger);
+}
+
+.emergency-page .form-card {
+  border-top: 4px solid var(--danger);
+}
+
+.emergency-page .form-card > .danger-button {
+  min-height: 45px;
+  background: var(--danger);
+  color: #ffffff;
+  border-color: var(--danger);
+}
+
+.emergency-page .form-card > .danger-button:hover {
+  background: var(--danger-dark);
+}
+
+.history-photo {
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes countdown {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes screen-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5eeec;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccb2ac;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* ==========================================
+   LARGE TV / FULL HD / 4K
+========================================== */
+
+@media (min-width: 1600px) {
+  .tv-dashboard .performance-table td {
+    font-size: 1.05vw;
+  }
+
+  .tv-dashboard .employee-identity strong {
+    font-size: 1.05vw;
+  }
+
+  .tv-dashboard .summary-card > strong {
+    font-size: 1.9vw;
+  }
+
+  .tv-dashboard .section-heading h2 {
+    font-size: 1.1vw;
+  }
+}
+
+/* ==========================================
+   COMPACT LANDSCAPE DISPLAY / 720P TV
+========================================== */
+
+@media (min-width: 901px) and (max-height: 800px) {
+  .tv-dashboard {
+    padding: 1vh 1.4vw;
+    gap: 0.7vh;
+  }
+
+  .dashboard-header {
+    min-height: 6vh;
+  }
+
+  .dashboard-header .jfw-logo {
+    max-height: 6vh;
+  }
+
+  .dashboard-title h1 {
+    font-size: 1.9vw;
+  }
+
+  .dashboard-title p {
+    margin-top: 2px;
+    font-size: 0.65vw;
+  }
+
+  .event-registration {
+    padding: 0.7vh 0.8vw;
+  }
+
+  .registration-table th {
+    padding: 0.5vh 5px;
+  }
+
+  .registration-table td {
+    padding: 0.5vh 5px;
+    font-size: 1.7vw;
+  }
+
+  .tv-dashboard .summary-card {
+    padding: 0.9vh 0.8vw;
+  }
+
+  .tv-dashboard .summary-card > span {
+    margin-bottom: 0.4vh;
+  }
+
+  .tv-dashboard .summary-card > strong {
+    font-size: 1.6vw;
+  }
+
+  .tv-dashboard .performance-table {
+    border-spacing: 0 0.3vh;
+  }
+
+  .tv-dashboard .performance-table td {
+    padding: 0.35vh 0.6vw;
+    font-size: 0.95vw;
+  }
+
+  .tv-dashboard .performance-table th {
+    padding: 0.6vh 0.6vw;
+  }
+
+  .tv-dashboard .employee-photo {
+    width: 3.5vh;
+    height: 3.5vh;
+    min-width: 3.5vh;
+  }
+
+  .tv-dashboard .employee-identity {
+    gap: 2px;
+  }
+
+  .tv-dashboard .target-achievement {
+    gap: 3px;
+  }
+
+  .tv-dashboard .target-values {
+    gap: 2px;
+  }
+}
+
+/* ==========================================
+   TABLET AND SMALL LAPTOP
+========================================== */
+
+@media (max-width: 1100px) {
+  .management-page {
+    padding: 22px 22px 40px;
+  }
+
+  .management-page .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .management-navigation a {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .misc-expense-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .misc-expense-row .danger-button {
+    grid-column: 1 / -1;
+    justify-self: end;
+  }
+}
+
+/* ==========================================
+   TABLET DASHBOARD
+========================================== */
+
+@media (max-width: 900px) {
+  .tv-dashboard {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .dashboard-header {
+    min-height: 65px;
+    gap: 12px;
+  }
+
+  .dashboard-header .jfw-logo {
+    width: 100px;
+    max-height: 55px;
+  }
+
+  .dashboard-title h1 {
+    font-size: 24px;
+  }
+
+  .dashboard-title p {
+    font-size: 9px;
+  }
+
+  .dashboard-status > strong {
+    font-size: 15px;
+  }
+
+  .live-status {
+    font-size: 9px;
+  }
+
+  .event-registration {
+    padding: 12px;
+  }
+
+  .tv-dashboard .section-heading {
+    margin-bottom: 10px;
+  }
+
+  .tv-dashboard .section-heading h2 {
+    font-size: 16px;
+  }
+
+  .tv-dashboard .section-heading > span {
+    font-size: 11px;
+  }
+
+  .registration-table th {
+    font-size: 12px;
+    padding: 10px 5px;
+  }
+
+  .registration-table td {
+    font-size: 24px;
+    padding: 10px 5px;
+  }
+
+  .tv-dashboard .dashboard-filters {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .tv-dashboard .filter-button {
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+
+  .tv-dashboard .month-filters select {
+    font-size: 12px;
+    padding: 9px 10px;
+    max-width: 230px;
+  }
+
+  .tv-dashboard .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .tv-dashboard .summary-card {
+    padding: 15px;
+  }
+
+  .tv-dashboard .summary-card > span {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .tv-dashboard .summary-card > strong {
+    font-size: 23px;
+  }
+
+  .tv-dashboard .performance-section {
+    flex: initial;
+    padding: 14px;
+    overflow: visible;
+  }
+
+  .tv-dashboard .performance-section .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .tv-dashboard .performance-table {
+    border-spacing: 0 5px;
+  }
+
+  .tv-dashboard .target-performance-table {
+    min-width: 720px;
+  }
+
+  .tv-dashboard .daily-performance-table {
+    min-width: 420px;
+  }
+
+  .tv-dashboard .performance-table th {
+    font-size: 12px;
+    padding: 12px 10px;
+  }
+
+  .tv-dashboard .performance-table td {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .tv-dashboard .employee-photo {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  .tv-dashboard .employee-photo > span {
+    font-size: 15px;
+  }
+
+  .tv-dashboard .employee-cell {
+    gap: 8px;
+  }
+
+  .tv-dashboard .employee-identity > small {
+    font-size: 10px;
+  }
+
+  .tv-dashboard .target-values > small,
+  .tv-dashboard .target-achievement > small {
+    font-size: 10px;
+  }
+
+  .tv-dashboard .achievement-cell > strong {
+    font-size: 13px;
+  }
+
+  .tv-dashboard .progress-track {
+    height: 6px;
+  }
+
+  .tv-dashboard .manual-label {
+    font-size: 9px !important;
+  }
+
+  .dashboard-footer {
+    flex-wrap: wrap;
+    padding: 5px 0;
+  }
+
+  .dashboard-links {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .dashboard-links a {
+    font-size: 12px;
+  }
+
+  .sound-button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+  body {
+    font-size: 13px;
+  }
+
+  .management-page {
+    padding: 15px 12px 30px;
+  }
+
+  .management-page > * + * {
+    margin-top: 15px;
+  }
+
+  .management-session {
+    padding: 8px 12px;
+  }
+
+  .page-header {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 15px;
+  }
+
+  .page-header .jfw-logo {
+    width: 95px;
+  }
+
+  .page-header > div {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  .page-header > .secondary-button {
+    margin-left: auto;
+  }
+
+  .page-header h1 {
+    font-size: 23px;
+  }
+
+  .page-header p {
+    font-size: 12px;
+  }
+
+  .management-navigation {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .management-navigation a {
+    flex-shrink: 0;
+    padding: 9px 11px;
+    white-space: nowrap;
+  }
+
+  .form-card,
+  .management-card {
+    padding: 17px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .form-card {
+    gap: 15px;
+  }
+
+  .form-card h2,
+  .management-card > h2 {
+    font-size: 18px;
+  }
+
+  .page-toolbar {
+    gap: 10px;
+  }
+
+  .page-toolbar input,
+  .page-toolbar select {
+    max-width: none;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .page-toolbar > .primary-button {
+    margin-left: 0;
+  }
+
+  .employee-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+    gap: 10px;
+  }
+
+  .employee-card {
+    padding: 18px 10px;
+  }
+
+  .employee-card .employee-photo {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+  }
+
+  .employee-card h3 {
+    font-size: 15px;
+  }
+
+  .employee-card p {
+    font-size: 11px;
+  }
+
+  .employee-card .card-actions {
+    gap: 5px;
+  }
+
+  .employee-card .card-actions > * {
+    padding: 7px 8px;
+    font-size: 11px;
+  }
+
+  .profile-upload {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .profile-header {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 17px;
+  }
+
+  .profile-header .employee-photo {
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
+  }
+
+  .profile-header h2 {
+    font-size: 19px;
+  }
+
+  .profile-header > .primary-button {
+    width: 100%;
+  }
+
+  .profile-header strong {
+    font-size: 12px;
+  }
+
+  .summary-grid {
+    gap: 10px;
+  }
+
+  .summary-card {
+    padding: 14px;
+  }
+
+  .summary-card > span {
+    font-size: 11px;
+  }
+
+  .summary-card > strong {
+    font-size: 21px;
+  }
+
+  .manual-achievement-section {
+    padding: 15px;
+  }
+
+  .achievement-preview {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .achievement-preview .achievement-cell {
+    width: 100%;
+    max-width: none;
+  }
+
+  .achievement-preview .progress-track {
+    max-width: none;
+  }
+
+  .misc-expense-row {
+    grid-template-columns: 1fr;
+  }
+
+  .misc-expense-row .danger-button {
+    width: 100%;
+  }
+
+  .data-table {
+    min-width: 550px;
+  }
+
+  .data-table th,
+  .data-table td {
+    font-size: 12px;
+  }
+
+  .dashboard-header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .dashboard-title {
+    flex-basis: 100%;
+    order: 3;
+    padding: 5px 0;
+  }
+
+  .dashboard-title h1 {
+    font-size: 23px;
+  }
+
+  .registration-table {
+    border-spacing: 3px 0;
+  }
+
+  .registration-table th {
+    font-size: 10px;
+    padding: 8px 2px;
+  }
+
+  .registration-table td {
+    font-size: 19px;
+  }
+
+  .filter-group {
+    width: 100%;
+    gap: 4px;
+  }
+
+  .filter-button,
+  .tv-dashboard .filter-button {
+    flex: 1;
+    padding: 9px 6px;
+    font-size: 11px;
+  }
+
+  .month-filters {
+    width: 100%;
+    gap: 6px;
+  }
+
+  .month-filters select,
+  .tv-dashboard .month-filters select {
+    flex: 1;
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    font-size: 11px;
+    padding: 9px 5px;
+  }
+
+  .dashboard-footer {
+    justify-content: center;
+  }
+
+  .dashboard-links {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dashboard-links a {
+    font-size: 11px;
+  }
+
+  .celebration-screen {
+    padding: 25px 15px;
+    gap: 15px;
+  }
+
+  .celebration-screen .jfw-logo {
+    width: 140px;
+  }
+
+  .celebration-eyebrow {
+    font-size: 11px;
+  }
+
+  .celebration-screen h1 {
+    font-size: 35px;
+  }
+
+  .celebration-screen h2 {
+    font-size: 25px;
+  }
+
+  .celebration-screen .celebration-photo {
+    width: 145px;
+    height: 145px;
+    min-width: 145px;
+  }
+
+  .celebration-amount {
+    font-size: 44px;
+  }
+
+  .celebration-screen > p {
+    font-size: 13px;
+  }
+
+  .celebration-details {
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .celebration-details > div {
+    flex: 1;
+    min-width: 90px;
+    padding: 12px 8px;
+  }
+
+  .celebration-details span {
+    font-size: 10px;
+  }
+
+  .celebration-details strong {
+    font-size: 17px;
+  }
+
+  .target-achieved-celebration .target-completed-badge {
+    font-size: 12px;
+    padding: 9px 15px;
+  }
+
+  .emergency-warning {
+    font-size: 20px;
+    padding: 12px 15px;
+  }
+
+  .emergency-screen .emergency-photo {
+    width: 180px;
+    height: 180px;
+    min-width: 180px;
+  }
+
+  .emergency-screen h1 {
+    font-size: 30px;
+  }
+
+  .emergency-screen > p {
+    font-size: 20px;
+  }
+
+  .emergency-screen > strong {
+    font-size: 13px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+  .employee-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card > strong {
+    font-size: 18px;
+  }
+
+  .celebration-screen h1 {
+    font-size: 29px;
+  }
+
+  .celebration-amount {
+    font-size: 36px;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+  }
+
+  .celebration-screen,
+  .emergency-screen {
+    animation: none;
+  }
+}
+/* ==========================================
+   LARGER LOGO AND CITY NAMES
+========================================== */
+
+.dashboard-header {
+  min-height: 10vh;
+}
+
+/* Dashboard Logo */
+.dashboard-header .jfw-logo {
+  width: 18vw;
+  min-width: 180px;
+  max-width: 450px;
+  max-height: 10vh;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Event City Names */
+.registration-table th {
+  font-size: 1.6vw;
+  font-weight: 700;
+  padding: 0.9vh 5px;
+  text-align: center;
+}
+
+/* Event Registration Numbers */
+.registration-table td {
+  font-size: 2.5vw;
+  font-weight: 800;
+  padding: 0.9vh 5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .dashboard-header .jfw-logo {
+    width: 180px;
+    min-width: 100px;
+    max-height: 80px;
+  }
+
+  .registration-table th {
+    font-size: 16px;
+  }
+
+  .registration-table td {
+    font-size: 24px;
+  }
+}
+.dashboard-header {
+  min-height: 15vh;
+  position: relative;
+  padding-left: 0;
+}
+
+/* Larger logo, aligned to the left */
+.dashboard-header .jfw-logo {
+  width: 32vw;
+  min-width: 300px;
+  max-width: 750px;
+  max-height: 15vh;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+  margin-left: -1.2vw;
+  flex-shrink: 0;
+}
+
+/* Keep dashboard title centered */
+.dashboard-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* Keep clock on the right */
+.dashboard-status {
+  margin-left: auto;
+}
+.dashboard-header {
+  min-height: 10vh;
+  height: 10vh;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: visible;
+}
